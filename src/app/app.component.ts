@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ChatAdapter } from 'ng-chat';
 import { HttpClient } from '@angular/common/http';
-import { MyAdapter } from './MyAdapter';
+import { DemoAdapter } from './MyAdapter';
 
 
 
@@ -11,19 +11,25 @@ import { MyAdapter } from './MyAdapter';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'chat-component';
-  fileUploadUrl: string = `${MyAdapter.serverBaseUrl}UploadFile`;
-
-
 
   constructor(private http: HttpClient){
 
   }
 
-  userId: string = '999';
-  username!: string ;
+  userId: string = "demo-data";
+  currentTheme = 'dark-theme';
+  username!: string;
 
-  public adapter: ChatAdapter = new MyAdapter(this.http);
+  adapter: ChatAdapter = new DemoAdapter();
 
+
+  onEventTriggered(event: string): void {
+   console.log(event);
+  }
+
+  public messageSeen(event: any)
+  {
+    console.log(event);
+  }
 
 }
