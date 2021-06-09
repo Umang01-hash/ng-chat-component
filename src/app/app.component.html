@@ -1,11 +1,23 @@
+
+<section>
+
+    <div class="example-button-row">
+      <button mat-raised-button >Get History</button>
+      <button mat-raised-button color="primary" (click)="MessageToNitesh(window)">Add Message To Nitesh</button>
+      <button mat-raised-button color="accent" (click)="MessageToGaurav(window)">Add Message To Gaurav</button>
+
+      <!-- <button mat-raised-button color="warn"  (click)="getHistory($event)">Load History</button> -->
+
+
+    </div>
+</section>
+
 <ng-chat  [adapter]="adapter"
 
 [userId]="userId"
 [historyEnabled]="true"
 [historyPageSize]="4"
 [hideFriendsList]="false"
-
-
 (onParticipantClicked)="onEventTriggered('ParticipantClicked triggered')"
 (onParticipantChatOpened)="onEventTriggered('ParticipantChatOpened triggered')"
 (onParticipantChatClosed)="onEventTriggered('ParticipantChatClosed triggered')"
